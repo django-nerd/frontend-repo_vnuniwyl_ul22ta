@@ -3,12 +3,16 @@ import { motion } from 'framer-motion'
 
 export default function Hero() {
   return (
-    <section id="home" className="relative h-screen w-full overflow-hidden bg-slate-950">
-      <div className="absolute inset-0">
+    <section id="home" className="relative h-screen w-full overflow-hidden" style={{background:'linear-gradient(180deg,#0b0a09 0%, #14110f 100%)'}}>
+      {/* Background video placeholder (replace with 4K performance video) */}
+      <video className="absolute inset-0 w-full h-full object-cover opacity-60" src="" autoPlay muted loop playsInline />
+
+      {/* Spline ambience as fallback layer */}
+      <div className="absolute inset-0 pointer-events-none opacity-40">
         <Spline scene="https://prod.spline.design/FduaNp3csZktbOi3/scene.splinecode" style={{ width: '100%', height: '100%' }} />
       </div>
 
-      <div className="absolute inset-0 bg-gradient-to-b from-slate-950/20 via-slate-950/50 to-slate-950 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/40 to-[#0b0a09] pointer-events-none" />
 
       <div className="relative h-full max-w-7xl mx-auto px-6 flex items-center">
         <motion.div
@@ -18,33 +22,49 @@ export default function Hero() {
           className="max-w-3xl"
         >
           <motion.h1
-            className="text-5xl md:text-7xl font-semibold leading-tight tracking-tight text-white"
+            className="text-[12vw] md:text-[120px] leading-none font-semibold tracking-tight text-transparent bg-clip-text"
+            style={{backgroundImage:'linear-gradient(180deg,#D4AF37 0%, #C89D2B 60%, #8B6F1A 100%)', textShadow:'0 0 24px rgba(212,175,55,0.25)'}}
           >
-            DJ DELUX — Electronic Music Performer & DJ
+            DJ DELUX
           </motion.h1>
-          <p className="mt-6 text-slate-300 max-w-xl">
-            Futuristic soundscapes, precision-crafted sets, and immersive experiences.
+          <p className="mt-6 text-[#F5F5DC] max-w-xl text-lg">
+            <Typewriter>Electronic Music Visionary</Typewriter>
           </p>
           <div className="mt-10 flex flex-wrap items-center gap-4">
             <a
               href="#mixes"
-              className="px-6 py-3 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-[0_0_25px_rgba(37,99,235,0.35)] hover:shadow-[0_0_35px_rgba(124,58,237,0.55)] transition-shadow"
+              data-magnetic
+              className="px-7 py-3 rounded-full bg-[#D4AF37] text-[#0b0a09] font-medium shadow-[0_0_28px_rgba(212,175,55,0.35)] hover:shadow-[0_0_40px_rgba(212,175,55,0.55)] transition-shadow"
             >
-              Listen Now
+              LISTEN NOW
             </a>
             <a
               href="#contact"
-              className="px-6 py-3 rounded-full border border-white/20 text-white hover:border-white/40 transition-colors"
+              data-magnetic
+              className="px-7 py-3 rounded-full border border-[#8B4513]/40 text-[#FDF6E3] bg-[#8B4513]/20 backdrop-blur-sm hover:bg-[#8B4513]/30 transition-colors"
             >
-              Book / Collaborate
+              BOOK NOW
             </a>
           </div>
         </motion.div>
       </div>
 
       <div className="absolute bottom-6 left-0 right-0 flex justify-center">
-        <div className="w-[2px] h-10 rounded-full bg-gradient-to-b from-white/70 to-white/0" />
+        <div className="w-[2px] h-10 rounded-full bg-gradient-to-b from-[#FDF6E3]/70 to-transparent" />
       </div>
     </section>
+  )
+}
+
+function Typewriter({ children }) {
+  return (
+    <span className="inline-block overflow-hidden align-top">
+      <span className="[animation:blink_1.1s_steps(1)_infinite] after:content-[''] after:inline-block after:w-[2px] after:h-[1.1em] after:align-middle after:bg-[#F5F5DC]" style={{
+        WebkitMaskImage: 'linear-gradient(90deg, #000 70%, transparent 100%)'
+      }}>
+        {children}
+      </span>
+      <style>{`@keyframes blink{50%{opacity:.1}}`}</style>
+    </span>
   )
 }

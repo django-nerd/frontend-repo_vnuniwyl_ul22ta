@@ -17,17 +17,17 @@ const mixes = [
 
 export default function Mixes() {
   return (
-    <section id="mixes" className="w-full bg-slate-950">
+    <section id="mixes" className="w-full bg-[#0E0D0B]">
       <div className="max-w-7xl mx-auto px-6 py-24 md:py-32">
         <div className="flex items-end justify-between mb-10">
-          <h3 className="text-3xl md:text-5xl font-semibold text-white tracking-tight">Mixes & Tracks</h3>
-          <a href="#contact" className="hidden md:inline-block text-sm text-slate-300 hover:text-white transition-colors">Book / Collaborate ↗</a>
+          <h3 className="text-3xl md:text-5xl font-semibold text-[#FDF6E3] tracking-tight">Mixes & Tracks</h3>
+          <a href="#contact" className="hidden md:inline-block text-sm text-[#F5F5DC]/80 hover:text-[#FDF6E3] transition-colors">Book / Collaborate ↗</a>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {mixes.map((m, i) => (
-            <motion.div key={i} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: i * 0.05 }} className="rounded-2xl border border-white/10 bg-white/5 p-6">
-              <div className="text-white text-lg mb-4">{m.title}</div>
+            <motion.div key={i} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: i * 0.05 }} className="rounded-2xl border border-[#D4AF37]/10 bg-white/5 p-6">
+              <div className="text-[#FDF6E3] text-lg mb-4">{m.title}</div>
               <div className="aspect-video rounded-lg overflow-hidden">
                 <iframe
                   title={m.title}
@@ -41,8 +41,8 @@ export default function Mixes() {
         </div>
 
         <div className="mt-10 flex items-center gap-4">
-          <a href="#" className="px-5 py-2 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 text-white text-sm">Follow on Spotify</a>
-          <a href="#" className="px-5 py-2 rounded-full border border-white/20 text-white text-sm">Follow on SoundCloud</a>
+          <a href="#" className="px-5 py-2 rounded-full bg-gradient-to-r from-[#D4AF37] to-[#8B4513] text-[#0E0D0B] text-sm">Follow on Spotify</a>
+          <a href="#" className="px-5 py-2 rounded-full border border-[#D4AF37]/30 text-[#FDF6E3] text-sm">Follow on SoundCloud</a>
         </div>
       </div>
     </section>
